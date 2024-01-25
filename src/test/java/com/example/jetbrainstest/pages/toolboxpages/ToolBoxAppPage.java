@@ -2,8 +2,10 @@ package com.example.jetbrainstest.pages.toolboxpages;
 
 import com.example.jetbrainstest.AllureLogger;
 import io.qameta.allure.Step;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.slf4j.LoggerFactory;
@@ -110,7 +112,12 @@ public class ToolBoxAppPage {
     }
     @FindBy(xpath = "//a[text() = 'Google Chrome']")
     private WebElement googleChromeExistationRef;
-    public void googleChromeExistationRefClick(){
+    @FindBy(xpath = "//*[text() = \"Update quickly and easily\"]")
+    private WebElement el;
+    public void googleChromeExistationRefClick() throws InterruptedException {
+        myWait(5).visible(googleChromeExistationRef);
+        Actions a = new Actions(driver);
+        a.moveToElement(el);
         googleChromeExistationRef.click();
         LOG.info("Была нажата ссылка GoogleChrome");
     }

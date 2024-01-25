@@ -15,18 +15,13 @@ public class GoogleChromeExistationPage {
 
     @FindBy(css = "button.UywwFc-LgbsSe")
     private WebElement installExistationButton;
-    public void clickInstallExistationButton(){
-        installExistationButton.click();
-    }
-    public Boolean installExistationButtonIsClickable(){
-        return installExistationButton.isDisplayed();
-    }
+
     public void dismiss(){
         myWait(10).alertIsPresented();
         LOG.info("Закрыть алерт окно");
         driver.switchTo().alert().dismiss();
     }
-    @FindBy(css = "summary.dhB8g")
+    @FindBy(css = "summary.dhB8g svg:last-child")
     private WebElement googleMailList;
     public void unfurlGoogleMailList(){
         LOG.info("Раскрыть почту google");

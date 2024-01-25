@@ -110,7 +110,7 @@ public class ToolBoxAppTest extends BaseTest{
     @Tag("9")
     @DisplayName("Проверка ввода корректного email")
     public void correctEmailSubmit(){
-        String correctEmail = "eredzhepov@mail.ru"; // необходимо ввести адрес почты ранее не оформившей подписку
+        String correctEmail = "usertestovich@mail.ru"; // необходимо ввести адрес почты ранее не оформившей подписку
         toolBoxAppPage.setMailText(correctEmail);
         toolBoxAppPage.clickSubmitButton();
         assertTrue(toolBoxAppPage.getMessageAfterSuccesfulEmailSubmit(), "Сообщение об успешной отправки сообдения не появилось");
@@ -122,19 +122,10 @@ public class ToolBoxAppTest extends BaseTest{
         toolBoxAppPage.clickSubmitButton();
         assertTrue(toolBoxAppPage.messageAboutRequiredEmailFieldIsDisplayed(), "Сообщение об обязательном поле не появилось");
     }
-//    @Test
-//    @Tag("11")
-//    @DisplayName("Закрытие всплывающего попап окна с установкой расширения")
-//    public void installGoogleChromeExistation(){
-//        toolBoxAppPage.googleChromeExistationRefClick();
-//        googleChromeExistationPage.clickInstallExistationButton();
-//        googleChromeExistationPage.dismiss();
-//        assertTrue(googleChromeExistationPage.installExistationButtonIsClickable(), "Кнопка установить не появилась");
-//    }
     @Test
     @Tag("12")
     @DisplayName("Показать почту гугл")
-    public void installGoogleChromeExistation(){
+    public void installGoogleChromeExistation() throws InterruptedException {
         toolBoxAppPage.googleChromeExistationRefClick();
         googleChromeExistationPage.unfurlGoogleMailList();
         assertTrue(googleChromeExistationPage.supportMailIsDisplayed(), "Почта google не появилась");
@@ -142,7 +133,6 @@ public class ToolBoxAppTest extends BaseTest{
     @Test
     @Tag("13")
     @DisplayName("Проверка что на cтранице Firfox в тайтле JetBrains Toolbox Extension – Get this Extension for \uD83E\uDD8A Firefox (en-US)")
-
     public void firefoxPageTitle(){
         String title = "JetBrains Toolbox Extension – Get this Extension for \uD83E\uDD8A Firefox (en-US)";
         toolBoxAppPage.firefoxRefClick();
@@ -177,7 +167,7 @@ public class ToolBoxAppTest extends BaseTest{
     @Tag("17")
     @DisplayName("Проверка, что после нажатия на кнопку 2-ю кнопку exe, появляется дропдаун меню")
     public void secondDropDownMenuShowed() {
-        toolBoxAppPage.clickDropDownMenuButton();
+        toolBoxAppPage.secondExeButtonClick();
         assertTrue(toolBoxAppPage.checkIfDropDownMenuIsDisplayed(),"Меню не появилось");
     }
     @Test

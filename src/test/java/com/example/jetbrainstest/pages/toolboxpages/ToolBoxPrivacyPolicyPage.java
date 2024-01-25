@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import static com.example.jetbrainstest.MyWait.myWait;
+
 public class ToolBoxPrivacyPolicyPage {
     WebDriver driver;
 
@@ -14,6 +16,7 @@ public class ToolBoxPrivacyPolicyPage {
     private WebElement privacySummary;
 
     public Boolean privacySummaryIsDisplayed(){
+        myWait(10).visible(privacySummary);
        return privacySummary.isDisplayed();
     }
     public ToolBoxPrivacyPolicyPage(WebDriver driver){

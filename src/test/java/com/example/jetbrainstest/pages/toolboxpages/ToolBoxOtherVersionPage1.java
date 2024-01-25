@@ -7,6 +7,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.slf4j.LoggerFactory;
 
+import static com.example.jetbrainstest.MyWait.myWait;
+
 public class ToolBoxOtherVersionPage1 {
     WebDriver driver;
     AllureLogger LOG = new AllureLogger(LoggerFactory.getLogger(ToolBoxOtherVersionPage1.class));
@@ -35,6 +37,7 @@ public class ToolBoxOtherVersionPage1 {
    @FindBy(css = "div[id = '2.1'] table tr:nth-child(2)")
    private WebElement windowsVersion;
    public String getWindowsVersion(){
+       myWait(5).visible(windowsVersion);
        LOG.info("Возвращение выбранной версии виндовс");
        return windowsVersion.getText();
    }
